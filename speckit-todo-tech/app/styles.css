@@ -1,0 +1,233 @@
+:root {
+  --bg-a: #050a17;
+  --bg-b: #0d1030;
+  --panel: rgba(10, 18, 40, 0.75);
+  --panel-edge: rgba(150, 195, 255, 0.16);
+  --text: #d7e8ff;
+  --muted: #8ea8cf;
+  --neon-cyan: #44e6ff;
+  --neon-blue: #4a79ff;
+  --neon-purple: #a855ff;
+  --danger: #ff4d7e;
+  --ok: #44f0bb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1000px 500px at 18% 0%, rgba(68, 230, 255, 0.15), transparent 60%),
+    radial-gradient(800px 500px at 90% 100%, rgba(168, 85, 255, 0.16), transparent 65%),
+    linear-gradient(160deg, var(--bg-a), var(--bg-b));
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.shell {
+  width: min(760px, 100%);
+}
+
+.panel-header {
+  margin-bottom: 0.85rem;
+}
+
+h1 {
+  margin: 0;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 16px rgba(68, 230, 255, 0.5);
+}
+
+.sub {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+}
+
+.panel {
+  background: linear-gradient(180deg, rgba(18, 29, 58, 0.85), rgba(11, 16, 39, 0.85));
+  border: 1px solid var(--panel-edge);
+  border-radius: 18px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    inset 0 2px 0 rgba(222, 243, 255, 0.13),
+    inset 0 -12px 30px rgba(5, 8, 19, 0.65),
+    0 14px 30px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(74, 121, 255, 0.2);
+}
+
+.add-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.6rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 1px solid rgba(130, 178, 255, 0.45);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(12, 22, 46, 0.95), rgba(10, 16, 35, 0.95));
+  color: var(--text);
+  padding: 0.8rem 0.9rem;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.08), inset 0 -2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.btn {
+  border: 1px solid rgba(120, 172, 255, 0.45);
+  background: linear-gradient(180deg, rgba(60, 92, 173, 0.8), rgba(32, 54, 112, 0.92));
+  color: #e8f4ff;
+  border-radius: 12px;
+  padding: 0.65rem 0.95rem;
+  cursor: pointer;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -3px 10px rgba(0, 0, 0, 0.35),
+    0 0 10px rgba(68, 230, 255, 0.15);
+}
+
+.btn:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -3px 10px rgba(0, 0, 0, 0.35),
+    0 0 14px rgba(68, 230, 255, 0.35);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, rgba(82, 121, 245, 0.95), rgba(46, 73, 170, 0.95));
+}
+
+.btn-danger {
+  margin-left: auto;
+  background: linear-gradient(180deg, rgba(191, 71, 119, 0.95), rgba(122, 33, 68, 0.95));
+  border-color: rgba(255, 145, 184, 0.5);
+}
+
+.toolbar {
+  margin-top: 0.9rem;
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-btn.active {
+  border-color: rgba(68, 230, 255, 0.75);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -3px 10px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(68, 230, 255, 0.25),
+    0 0 18px rgba(68, 230, 255, 0.4);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.95rem 0 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.7rem;
+  align-items: center;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(25, 39, 74, 0.75), rgba(16, 25, 53, 0.78));
+  border: 1px solid rgba(120, 161, 255, 0.3);
+  padding: 0.55rem 0.65rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.check-wrap {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  position: relative;
+}
+
+.todo-check {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.check-glyph {
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  border: 1px solid rgba(110, 168, 255, 0.6);
+  background: linear-gradient(180deg, rgba(10, 20, 45, 0.95), rgba(5, 10, 25, 0.95));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.todo-check:checked + .check-glyph {
+  background: linear-gradient(180deg, rgba(70, 229, 186, 0.95), rgba(21, 123, 97, 0.95));
+  box-shadow: 0 0 12px rgba(68, 240, 187, 0.7);
+}
+
+.todo-check:checked + .check-glyph::after {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 6px;
+  border-left: 2px solid #06261f;
+  border-bottom: 2px solid #06261f;
+  transform: rotate(-45deg) translate(5px, 6px);
+}
+
+.todo-text {
+  overflow-wrap: anywhere;
+}
+
+.todo-item.completed .todo-text {
+  color: #89a2c7;
+  text-decoration: line-through;
+}
+
+.icon-btn {
+  padding: 0.45rem 0.65rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+button:focus-visible,
+input:focus-visible,
+.todo-check:focus-visible + .check-glyph {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(68, 230, 255, 0.2), 0 0 16px rgba(68, 230, 255, 0.55);
+}
+
+@media (max-width: 560px) {
+  .add-row {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-danger {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Skeuomorphic Todo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell" aria-labelledby="app-title">
+    <header class="panel-header">
+      <h1 id="app-title">Skeuo Tech Todo</h1>
+      <p class="sub">Neon task console</p>
+    </header>
+
+    <section class="panel" aria-label="Todo controls and list">
+      <form id="todo-form" class="add-row">
+        <label for="todo-input" class="sr-only">Add a todo</label>
+        <input id="todo-input" name="todo" type="text" autocomplete="off" placeholder="Add a mission..." maxlength="140" required />
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+
+      <div class="toolbar" role="toolbar" aria-label="Todo filters">
+        <button type="button" class="btn filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="btn filter-btn" data-filter="active" aria-pressed="false">Active</button>
+        <button type="button" class="btn filter-btn" data-filter="completed" aria-pressed="false">Completed</button>
+        <button type="button" id="clear-completed" class="btn btn-danger">Clear Completed</button>
+      </div>
+
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <template id="todo-item-template">
+    <li class="todo-item">
+      <label class="check-wrap">
+        <input type="checkbox" class="todo-check" />
+        <span class="check-glyph" aria-hidden="true"></span>
+      </label>
+      <span class="todo-text"></span>
+      <button type="button" class="btn icon-btn delete-btn" aria-label="Delete todo">Delete</button>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
