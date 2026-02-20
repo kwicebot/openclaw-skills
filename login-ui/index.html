@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login UI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="loginTitle">
+      <h1 id="loginTitle">Welcome back</h1>
+      <p class="subtitle">Sign in to continue</p>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+          <small class="error" id="emailError"></small>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required minlength="6" />
+            <button class="toggle" type="button" id="togglePassword" aria-label="Show password">Show</button>
+          </div>
+          <small class="error" id="passwordError"></small>
+        </div>
+
+        <div class="row">
+          <label class="remember">
+            <input type="checkbox" id="remember" />
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button class="btn" type="submit">Log in</button>
+        <small class="status" id="formStatus"></small>
+      </form>
+
+      <div class="divider"><span>or continue with</span></div>
+      <div class="socials">
+        <button type="button" class="social">Google</button>
+        <button type="button" class="social">GitHub</button>
+        <button type="button" class="social">Apple</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
