@@ -1,5 +1,5 @@
 {
-  "repo": "",
-  "branch": "main",
+  "repo": "https://github.com/kwicebot/openclaw-skills.git",
+  "branch": "master",
   "autoCommitPrefix": "chore"
 }
